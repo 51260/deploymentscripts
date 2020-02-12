@@ -21,7 +21,7 @@
     group:
       name: tomcat
 
-  - name: add tomcat user
+  - name: tomcat user
     user:
       name: tomcat
       group: tomcat
