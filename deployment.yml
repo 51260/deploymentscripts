@@ -20,9 +20,7 @@
     src: {{ source }}
     dest: {{ deploymentpath }} 
 
-- name: enable tomcat startup
-    systemd:
+- name: Restart Tomcat
+  service:
     name: tomcat
-    enabled: yes
     state: restarted
-    become: true
