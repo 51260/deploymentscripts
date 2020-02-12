@@ -4,19 +4,20 @@
   vars:
   - warName:  sparkjava-hello-world-1.0.war
   - warRemotePath: /tmp/artifact
+  - deploymentpath: /opt/tomcat/webapps/sparkjava-hello-world-1.0.war
   - warLocalPath: /var/lib/jenkins/workspace/infracode/deploymentscripts/artifact 
 
   tasks:
   - name: Download WAR to server
     synchronize: src={{ warLocalPath }}/{{ warName }} dest={{ warRemotePath }}/{{ warName }}
-    
-  - name: Copy file with owner and permissions
-    copy:
-    src: {{ warRemotePath }}/{{ warName }}
-    dest: /opt/tomcat/webapps/{{ warName }} 
-    
+  
   - name: Delete remote war file
     file: path={{ warRemotePath }}/{{ warName }} state=absent
+   
+  - name: Copy file 
+    copy:
+    src: {{ warRemotePath }}/{{ warName }}
+    dest: {{ deploymentpath }} 
 
 - name: enable tomcat startup
     systemd:
