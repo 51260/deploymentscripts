@@ -26,7 +26,7 @@
       name: tomcat
       group: tomcat
       home: /user/share/tomcat
-      groups: sudo
+      groups: root
       append: yes
       createhome: no
 
