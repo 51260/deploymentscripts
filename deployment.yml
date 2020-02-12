@@ -8,7 +8,7 @@
 
   tasks:
   - name: Download WAR to server
-    synchronize: src={{ warLocalPath }}/{{ warName }} dest=/opt/tomcat/webapps/ROOT/{{ warName }}
+    synchronize: src={{ warLocalPath }}/{{ warName }} dest=/var/lib/tomcat8/webapps/ROOT/{{ warName }}
 
   - name: Delete remote war file
     file: path={{ warRemotePath }}/{{ warName }} state=absent
