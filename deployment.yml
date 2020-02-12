@@ -11,7 +11,7 @@
   - name: Unzip WAR file
     unarchive: src={{ warRemotePath }}/{{ warName }} dest=/opt/tomcat/webapps/ROOT/ copy=no mode=0755 owner=tomcat group=tomcat
     notify:
-        - Restart tomcat7
+        - Restart tomcat
 
   - name: Delete remote war file
     file: path={{ warRemotePath }}/{{ warName }} state=absent
