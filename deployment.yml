@@ -11,7 +11,7 @@
     synchronize: src={{ warLocalPath }}/{{ warName }} dest={{ warRemotePath }}/{{ warName }}
     
   - name: Unzip WAR file
-    unarchive: src={{ warRemotePath }}/{{ warName }} dest=/var/lib/tomcat8/webapps/ROOT/ copy=no mode=0755 owner=ubuntu group=ubuntu
+    unarchive: src={{ warRemotePath }}/{{ warName }} dest=/opt/tomcat/webapps/ROOT/ copy=no mode=0755 owner=ubuntu group=ubuntu
     notify:
         - Restart tomcat8
 
@@ -19,5 +19,5 @@
     file: path={{ warRemotePath }}/{{ warName }} state=absent
 
   handlers:
-    - name: Restart tomcat8
-      service: name=tomcat8 state=restarted
+    - name: Restart tomcat
+      service: name=tomcat state=restarted
