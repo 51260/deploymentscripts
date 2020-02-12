@@ -47,7 +47,7 @@
     file:
       path: /opt/tomcat
       owner: tomcat
-      group: tomcat
+      group: root
       mode: "u+rwx,g+rx,o=rx"
       recurse: yes
       state: directory
