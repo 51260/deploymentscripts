@@ -17,8 +17,9 @@
    
   - name: Copy file 
     copy:
-      remote_src: /tmp/artifact/sparkjava-hello-world-1.0.war
+      src: /tmp/artifact/sparkjava-hello-world-1.0.war
       dest: /opt/tomcat/webapps/sparkjava-hello-world-1.0.war
+      remote_src: yes
 
   - name: Restart Tomcat
     service:
