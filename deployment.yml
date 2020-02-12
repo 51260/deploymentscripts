@@ -17,8 +17,8 @@
    
   - name: Copy file 
     copy:
-    src: "{{ source }}"
-    dest: "{{ deploymentpath }}"
+    src: /tmp/artifact/sparkjava-hello-world-1.0.war
+    dest: /opt/tomcat/webapps/sparkjava-hello-world-1.0.war
 
 - name: Restart Tomcat
   service:
