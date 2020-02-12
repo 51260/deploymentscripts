@@ -2,6 +2,7 @@
   vars:
   - warName: spring-petclinic-2.2.0.BUILD-SNAPSHOT.jar
   - warRemotePath: /tmp/artifact
+  - warLocalPath: /var/lib/jenkins/workspace/infracode/deploymentscripts/artifact 
 
   tasks:
   - name: Download WAR to server
