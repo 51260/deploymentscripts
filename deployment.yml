@@ -22,4 +22,4 @@
       remote_src: yes
     
   - name: restart tomcat
-    command: service tomcat restart
+    command: sudo service tomcat restart
