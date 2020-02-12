@@ -17,10 +17,10 @@
    
   - name: Copy file 
     copy:
-    src: /tmp/artifact/sparkjava-hello-world-1.0.war
-    dest: /opt/tomcat/webapps/sparkjava-hello-world-1.0.war
+      src: /tmp/artifact/sparkjava-hello-world-1.0.war
+      dest: /opt/tomcat/webapps/sparkjava-hello-world-1.0.war
 
-- name: Restart Tomcat
-  service:
-    name: tomcat
-    state: restarted
+  - name: Restart Tomcat
+    service:
+      name: tomcat
+      state: restarted
