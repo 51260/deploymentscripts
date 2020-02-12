@@ -17,6 +17,17 @@
       name: openjdk-11-jdk
       state: present
 
+  - name: add tomcat group
+    group:
+      name: tomcat
+
+  - name: add tomcat user
+    user:
+      name: tomcat
+      group: tomcat
+      home: /user/share/tomcat
+      createhome: no
+
   - name: create /opt/tomcat directory
     file:
       path: /opt/tomcat
@@ -33,8 +44,8 @@
   - name: Change ownership
     file:
       path: /opt/tomcat
-      owner: ubuntu
-      group: ubuntu
+      owner: tomcat
+      group: tomcat
       mode: "u+rwx,g+rx,o=rx"
       recurse: yes
       state: directory
