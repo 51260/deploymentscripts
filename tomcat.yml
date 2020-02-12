@@ -17,11 +17,11 @@
       name: openjdk-11-jdk
       state: present
       
-   - name: add tomcat user
+   - name: add user
     user:
-      name: tomcat
+      name: devsecops
       group: root
-      home: /user/share/tomcat
+      home: /user/share/devsecops
       createhome: no
       
   - name: create /opt/tomcat directory
@@ -40,7 +40,7 @@
   - name: Change ownership
     file:
       path: /opt/tomcat
-      owner: tomcat
+      owner: devsecops
       group: root
       mode: "u+rwx,g+rx,o=rx"
       recurse: yes
