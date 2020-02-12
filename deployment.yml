@@ -1,6 +1,6 @@
 - hosts: webservers
   vars:
-  - warName: spring-petclinic-2.2.0.BUILD-SNAPSHOT.jar
+  - warName:  sparkjava-hello-world-1.0.war
   - warRemotePath: /tmp/artifact
   - warLocalPath: /var/lib/jenkins/workspace/infracode/deploymentscripts/artifact 
 
