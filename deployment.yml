@@ -1,5 +1,5 @@
 - hosts: webservers
-  remote_user: devsecops
+  remote_user: tomcat
   become_method: sudo
   vars:
   - warName:  sparkjava-hello-world-1.0.war
@@ -11,7 +11,7 @@
     synchronize: src={{ warLocalPath }}/{{ warName }} dest={{ warRemotePath }}/{{ warName }}
     
   - name: Unzip WAR file
-    unarchive: src={{ warRemotePath }}/{{ warName }} dest=/opt/tomcat/webapps/ROOT/ copy=no mode=0755 owner=devsecops group=root
+    unarchive: src={{ warRemotePath }}/{{ warName }} dest=/opt/tomcat/webapps/ROOT/ copy=no mode=0755 owner=tomcat group=tomcat
     notify:
         - Restart tomcat
 
