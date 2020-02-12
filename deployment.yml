@@ -1,4 +1,5 @@
 - hosts: webservers
+  remote_user: tomcat
   vars:
   - warName:  sparkjava-hello-world-1.0.war
   - warRemotePath: /tmp/artifact
