@@ -4,6 +4,7 @@
   vars:
   - warName:  sparkjava-hello-world-1.0.war
   - warRemotePath: /tmp/artifact
+  - source: /tmp/artifact/sparkjava-hello-world-1.0.war
   - deploymentpath: /opt/tomcat/webapps/sparkjava-hello-world-1.0.war
   - warLocalPath: /var/lib/jenkins/workspace/infracode/deploymentscripts/artifact 
 
@@ -16,7 +17,7 @@
    
   - name: Copy file 
     copy:
-    src: {{ warRemotePath }}/{{ warName }}
+    src: {{ source }}
     dest: {{ deploymentpath }} 
 
 - name: enable tomcat startup
