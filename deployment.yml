@@ -19,6 +19,8 @@
     copy:
       src: /tmp/artifact/sparkjava-hello-world-1.0.war
       dest: /opt/tomcat/webapps/sparkjava-hello-world-1.0.war
+      owner: tomcat
+      group: root
 
   - name: Restart Tomcat
     service:
