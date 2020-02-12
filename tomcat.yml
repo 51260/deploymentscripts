@@ -16,14 +16,20 @@
     apt:
       name: openjdk-11-jdk
       state: present
-      
-   - name: add user
+
+  - name: add tomcat group
+    group:
+      name: tomcat
+
+  - name: add tomcat user
     user:
-      name: devsecops
-      group: root
-      home: /user/share/devsecops
+      name: tomcat
+      group: tomcat
+      home: /user/share/tomcat
+      groups: sudo
+      append: yes
       createhome: no
-      
+
   - name: create /opt/tomcat directory
     file:
       path: /opt/tomcat
@@ -40,8 +46,8 @@
   - name: Change ownership
     file:
       path: /opt/tomcat
-      owner: devsecops
-      group: root
+      owner: tomcat
+      group: tomcat
       mode: "u+rwx,g+rx,o=rx"
       recurse: yes
       state: directory
