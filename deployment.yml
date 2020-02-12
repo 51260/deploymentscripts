@@ -2,10 +2,10 @@
   remote_user: tomcat
   become_method: sudo
   vars:
-  - warName:  sparkjava-hello-world-1.0.war
+  - warName:  jpetstore.war
   - warRemotePath: /tmp/artifact
-  - source: /tmp/artifact/sparkjava-hello-world-1.0.war
-  - deploymentpath: /opt/tomcat/webapps/sparkjava-hello-world-1.0.war
+  - source: /tmp/artifact/jpetstore.war
+  - deploymentpath: /opt/tomcat/webapps/jpetstore.war
   - warLocalPath: /var/lib/jenkins/workspace/infracode/deploymentscripts/artifact 
 
   tasks:
@@ -17,8 +17,8 @@
  
   - name: Copy file 
     copy:
-      src: /tmp/artifact/sparkjava-hello-world-1.0.war
-      dest: /opt/tomcat/webapps/sparkjava-hello-world-1.0.war
+      src: /tmp/artifact/jpetstore.war
+      dest: /opt/tomcat/webapps/jpetstore.war
       remote_src: yes
     
   - name: restart tomcat
