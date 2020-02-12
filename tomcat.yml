@@ -16,7 +16,7 @@
     apt:
       name: openjdk-11-jdk
       state: present
-
+      
   - name: create /opt/tomcat directory
     file:
       path: /opt/tomcat
@@ -29,6 +29,15 @@
       dest: /opt/tomcat
       remote_src: yes
       extra_opts: [--strip-components=1]
+
+  - name: Change ownership
+    file:
+      path: /opt/tomcat
+      owner: ubuntu
+      group: root
+      mode: "u+rwx,g+rx,o=rx"
+      recurse: yes
+      state: directory
 
   - name: Copy Tomcat service from local to remote
     copy:
