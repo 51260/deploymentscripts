@@ -16,17 +16,6 @@
     apt:
       name: openjdk-11-jdk
       state: present
-
-  - name: add tomcat group
-    group:
-      name: tomcat
-
-  - name: tomcat user
-    user:
-      name: tomcat
-      group: tomcat
-      home: /user/share/tomcat
-      createhome: no
       
    - name: add tomcat user
     user:
@@ -52,7 +41,7 @@
     file:
       path: /opt/tomcat
       owner: tomcat
-      group: tomcat
+      group: root
       mode: "u+rwx,g+rx,o=rx"
       recurse: yes
       state: directory
