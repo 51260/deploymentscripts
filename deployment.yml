@@ -11,7 +11,10 @@
   tasks:
   - name: Download WAR to server
     synchronize: src={{ warLocalPath }}/{{ warName }} dest={{ warRemotePath }}/{{ warName }}
-   
+ 
+  - name: Delete remote war file
+    file: path=/opt/tomcat/webapps/sparkjava-hello-world-1.0.war state=absent
+ 
   - name: Copy file 
     copy:
       src: /tmp/artifact/sparkjava-hello-world-1.0.war
