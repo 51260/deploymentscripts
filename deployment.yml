@@ -8,11 +8,16 @@
 
   tasks:
   - name: Download WAR to server
-    synchronize: src={{ warLocalPath }}/{{ warName }} dest=/var/lib/tomcat8/webapps/ROOT/{{ warName }}
+    synchronize: src={{ warLocalPath }}/{{ warName }} dest={{ warRemotePath }}/{{ warName }}
+    
+   - name: Unzip WAR file
+    unarchive: src={{ warRemotePath }}/{{ warName }} dest=/var/lib/tomcat8/webapps/ROOT/ copy=no mode=0755 owner=ubuntu group=root
+    notify:
+        - Restart tomcat8
 
   - name: Delete remote war file
     file: path={{ warRemotePath }}/{{ warName }} state=absent
 
   handlers:
-    - name: Restart tomcat
-      service: name=tomcat state=restarted
+    - name: Restart tomcat8
+      service: name=tomcat8 state=restarted
