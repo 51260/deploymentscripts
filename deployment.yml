@@ -10,14 +10,17 @@
   - name: Download WAR to server
     synchronize: src={{ warLocalPath }}/{{ warName }} dest={{ warRemotePath }}/{{ warName }}
     
-  - name: Unzip WAR file
-    unarchive: src={{ warRemotePath }}/{{ warName }} dest=/opt/tomcat/webapps/ 
-    notify:
-        - Restart tomcat
-
+  - name: Copy file with owner and permissions
+    copy:
+    src: {{ warRemotePath }}/{{ warName }}
+    dest: /opt/tomcat/webapps/{{ warName }} 
+    
   - name: Delete remote war file
     file: path={{ warRemotePath }}/{{ warName }} state=absent
 
-  handlers:
-    - name: Restart tomcat
-      service: name=tomcat state=restarted
+- name: enable tomcat startup
+    systemd:
+    name: tomcat
+    enabled: yes
+    state: restarted
+    become: true
