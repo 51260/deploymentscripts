@@ -1,6 +1,6 @@
 - hosts: tomcatServer
   vars:
-  - warName: spring-petclinic-2.2.0.BUILD-SNAPSHOT.ja
+  - warName: spring-petclinic-2.2.0.BUILD-SNAPSHOT.jar
   - warRemotePath: /tmp/artifact
 
   tasks:
