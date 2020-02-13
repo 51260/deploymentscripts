@@ -2,10 +2,10 @@
   remote_user: tomcat
   become_method: sudo
   vars:
-  - warName:  ROOT.war
+  - warName:  PetClinic.war
   - warRemotePath: /tmp/artifact
-  - source: /tmp/artifact/ROOT.war
-  - deploymentpath: /opt/tomcat/webapps/ROOT.war
+  - source: /tmp/artifact/PetClinic.war
+  - deploymentpath: /opt/tomcat/webapps/PetClinic.war
   - warLocalPath: /var/lib/jenkins/workspace/infracode/deploymentscripts/artifact 
 
   tasks:
@@ -17,8 +17,8 @@
  
   - name: Copy file 
     copy:
-      src: /tmp/artifact/ROOT.war
-      dest: /opt/tomcat/webapps/ROOT.war
+      src: /tmp/artifact/PetClinic.war
+      dest: /opt/tomcat/webapps/PetClinic.war
       remote_src: yes
     
   - name: restart tomcat
