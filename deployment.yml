@@ -13,7 +13,7 @@
     synchronize: src={{ warLocalPath }}/{{ warName }} dest={{ warRemotePath }}/{{ warName }}
  
   - name: Delete remote war file
-    file: path=/opt/tomcat/webapps/sparkjava-hello-world-1.0.war state=absent
+    file: path=/opt/tomcat/webapps/PetClinic.war state=absent
  
   - name: Copy file 
     copy:
