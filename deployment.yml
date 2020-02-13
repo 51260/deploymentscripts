@@ -2,10 +2,10 @@
   remote_user: tomcat
   become_method: sudo
   vars:
-  - warName:  PetClinic.war
+  - warName:  simple-spring-webapp-1.0.war
   - warRemotePath: /tmp/artifact
-  - source: /tmp/artifact/PetClinic.war
-  - deploymentpath: /opt/tomcat/webapps/PetClinic.war
+  - source: /tmp/artifact/simple-spring-webapp-1.0.war
+  - deploymentpath: /opt/tomcat/webapps/simple-spring-webapp-1.0.war
   - warLocalPath: /var/lib/jenkins/workspace/infracode/deploymentscripts/artifact 
 
   tasks:
@@ -13,12 +13,12 @@
     synchronize: src={{ warLocalPath }}/{{ warName }} dest={{ warRemotePath }}/{{ warName }}
  
   - name: Delete remote war file
-    file: path=/opt/tomcat/webapps/PetClinic.war state=absent
+    file: path=/opt/tomcat/webapps/simple-spring-webapp-1.0.war state=absent
  
   - name: Copy file 
     copy:
       src: /tmp/artifact/PetClinic.war
-      dest: /opt/tomcat/webapps/PetClinic.war
+      dest: /opt/tomcat/webapps/simple-spring-webapp-1.0.war
       remote_src: yes
     
   - name: restart tomcat
