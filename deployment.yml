@@ -17,7 +17,7 @@
  
   - name: Copy file 
     copy:
-      src: /tmp/artifact/PetClinic.war
+      src: /tmp/artifact/simple-spring-webapp-1.0.war
       dest: /opt/tomcat/webapps/simple-spring-webapp-1.0.war
       remote_src: yes
     
