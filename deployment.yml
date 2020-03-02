@@ -4,8 +4,8 @@
   vars:
   - warName:  simple-spring-webap-1.0.war
   - warRemotePath: /opt/artifact
-  - source: /opt/artifact/simple-spring-webapp-1.0.war
-  - deploymentpath: /opt/tomcat/webapps/simple-spring-webapp-1.0.war
+  - source: /opt/artifact/{{ warName }}
+  - deploymentpath: /opt/tomcat/webapps/{{ warName }}
   - warLocalPath: /var/lib/jenkins/workspace/shared_library_job 
 
   tasks:
@@ -13,12 +13,12 @@
     synchronize: src={{ warLocalPath }}/{{ warName }} dest={{ warRemotePath }}/{{ warName }}
  
   - name: Delete remote war file
-    file: path=/opt/tomcat/webapps/simple-spring-webapp-1.0.war state=absent
+    file: path=/opt/tomcat/webapps/{{ warName }} state=absent
  
   - name: Copy file 
     copy:
-      src: /opt/artifact/simple-spring-webapp-1.0.war
-      dest: /opt/tomcat/webapps/simple-spring-webapp-1.0.war
+      src: /opt/artifact/{{ warName }}
+      dest: /opt/tomcat/{{ warName }}
       remote_src: yes
     
   - name: restart tomcat
