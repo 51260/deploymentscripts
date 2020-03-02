@@ -2,7 +2,7 @@
   remote_user: tomcat
   become_method: sudo
   vars:
-  - warName:  simple-spring-webapp-1.0.war
+  - warName:  simple-spring-webap-1.0.war
   - warRemotePath: /opt/artifact
   - source: /opt/artifact/simple-spring-webapp-1.0.war
   - deploymentpath: /opt/tomcat/webapps/simple-spring-webapp-1.0.war
